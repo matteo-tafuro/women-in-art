@@ -20,9 +20,11 @@ def merge_metadata_files(metadata_directory, output_file="met_metadata_final.csv
     merged_df = pd.concat(dataframes, axis=0, ignore_index=True)
 
     # Save the merged DataFrame to a new CSV file
-    merged_df.to_csv(output_file, index=False)
+    merged_df.to_csv(
+        os.path.join(os.path.dirname(__file__), "data", output_file), index=False
+    )
 
-    print("Merged CSV file saved as 'merged_metadata.csv'")
+    print(f"Merged CSV file saved as '{output_file}'")
 
 
 if __name__ == "__main__":
