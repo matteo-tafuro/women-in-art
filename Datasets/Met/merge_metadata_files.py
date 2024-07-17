@@ -30,4 +30,4 @@ def merge_metadata_files(metadata_directory, output_file="met_metadata_final.csv
 if __name__ == "__main__":
     # parent directory of the current file
     current_directory = os.path.dirname(__file__)
-    merge_metadata_files(os.path.join(current_directory, "data/MET metadata first 6"))
+    merge_metadata_files(os.path.join(current_directory, "data/MET chunks"))
