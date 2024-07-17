@@ -57,7 +57,7 @@ def main(root_dir=None, output_file=None):
 
     # Replace slashes with underscores in MET DataFrame columns
     met_df.columns = met_df.columns.str.replace("/", "_")
-    met_df = met_df.applymap(clean_text)
+    met_df = met_df.apply(lambda col: col.apply(clean_text))
 
     met_df.rename(
         columns={
@@ -70,7 +70,7 @@ def main(root_dir=None, output_file=None):
         },
         inplace=True,
     )
-    semart_df = semart_df.applymap(clean_text)
+    semart_df = semart_df.apply(lambda col: col.apply(clean_text))
     semart_df.rename(
         columns={
             "IMAGE_FILE": "image_file",
@@ -86,7 +86,7 @@ def main(root_dir=None, output_file=None):
         },
         inplace=True,
     )
-    rijksmuseum_df = rijksmuseum_df.applymap(clean_text)
+    rijksmuseum_df = rijksmuseum_df.apply(lambda col: col.apply(clean_text))
     rijksmuseum_df.rename(
         columns={
             "filename": "image_file",
@@ -98,7 +98,7 @@ def main(root_dir=None, output_file=None):
         },
         inplace=True,
     )
-    ukiyoe_df = ukiyoe_df.applymap(clean_text)
+    ukiyoe_df = ukiyoe_df.apply(lambda col: col.apply(clean_text))
     ukiyoe_df.rename(
         columns={
             "image_file": "image_file",
@@ -112,7 +112,7 @@ def main(root_dir=None, output_file=None):
     )
     # Drop the 'Unnamed: 42' column
     ukiyoe_df.drop("Unnamed: 42", axis=1, inplace=True)
-    wikiart_df = wikiart_df.applymap(clean_text)
+    wikiart_df = wikiart_df.apply(lambda col: col.apply(clean_text))
     wikiart_df.rename(
         columns={
             "description": "description",
@@ -124,7 +124,7 @@ def main(root_dir=None, output_file=None):
         },
         inplace=True,
     )
-    gac_df = gac_df.applymap(clean_text)
+    gac_df = gac_df.apply(lambda col: col.apply(clean_text))
     gac_df.rename(
         columns={
             "artwork_path": "image_file",
