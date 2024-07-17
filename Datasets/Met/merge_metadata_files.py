@@ -21,7 +21,7 @@ def merge_metadata_files(metadata_directory, output_file="met_metadata_final.csv
 
     # Save the merged DataFrame to a new CSV file
     merged_df.to_csv(
-        os.path.join(os.path.dirname(__file__), "data", output_file), index=False
+        os.path.join(os.path.dirname(__file__), "output", output_file), index=False
     )
 
     print(f"Merged CSV file saved as '{output_file}'")
