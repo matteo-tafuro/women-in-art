@@ -30,3 +30,6 @@ if __name__ == "__main__":
 
     # Save the list of artists to a text file
     output_file = os.path.join(os.path.dirname(__file__), "unique_artists.txt")
+    with open(output_file, "w") as f:
+        for artist in unique_artists:
+            f.write(artist + "\n")
